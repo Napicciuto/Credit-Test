@@ -1,8 +1,8 @@
 ActiveAdmin.register Customer do     
   index do                            
     column :full_name                             
-    column :rate           
-    column :credit             
+    column :annual_percentage_rate          
+    column :credit_line             
     column :balance             
     default_actions                   
   end                                 
