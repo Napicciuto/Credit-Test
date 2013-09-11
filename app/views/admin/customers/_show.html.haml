@@ -1,0 +1,70 @@
+.panel
+  %h3 Customer Details
+  #panel_contents
+    .attributes_table.customer
+      %table
+        %tbody
+          %tr.row
+            %th Full Name
+            %td 
+              = resource.full_name
+          %tr.row
+            %th email
+            %td 
+              = resource.email
+          %tr.row
+            %th APR
+            %td 
+              = number_to_percentage resource.annual_percentage_rate_rate
+          %tr.row
+            %th Credit Line
+            %td 
+              = number_to_currency resource.credit_line_credit_line
+          %tr.row
+            %th Start Date
+            %td 
+              = resource.start_date
+          
+.panel
+  %h3 Transactions Features
+  #panel_contents
+    .attributes_table.customer
+      %table
+        %tbody
+          %tr.row
+            %th Transaction
+            %th Day
+            %th Amount
+            %th Balance
+            %th Owed
+            %th Interest
+            %th Date
+        - total_balance = resource.balance 
+        - last_date = resource.start_date   
+        - unless resource.customer_transactions.nil?  
+          - resource.customer_transactions.each do |ct|  
+            - if ct.debit
+              - total_balance -= ct.amount
+            - else 
+              - total_balance += ct.amount
+            
+            %tr.row
+              %td 
+                = ct.debit ? "DRAW" : "PAYMENT" 
+              %td 
+                - to_day = (ct.date - last_date + 1).to_i
+                = (ct.date - resource.start_date + 1).to_i
+              %td 
+                = number_to_currency ct.amount
+              %td 
+                = number_to_currency total_balance
+              %td 
+                - total_owed = resource.credit_line_credit_line - total_balance
+                = number_to_currency total_owed
+              %td 
+                = number_to_currency total_owed * resource.annual_percentage_rate_rate / 365 * to_day unless ct.debit
+              %td 
+                = ct.date
+            - last_amount = ct.amount
+            - last_date = ct.date
+ 

@@ -5,6 +5,7 @@
 		= f.input :email
 		= f.input :annual_percentage_rate
 		= f.input :credit_line
+		= f.input :start_date, hint: "Date 30 day payment period starts"
 	#CustomerTransaction
 		= f.semantic_fields_for :customer_transactions do |ct|
 			= render 'customer_transaction_fields', :f => ct
