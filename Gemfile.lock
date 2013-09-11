@@ -65,6 +65,8 @@ GEM
     fastercsv (1.5.5)
     formtastic (2.2.1)
       actionpack (>= 3.0)
+    haml (4.0.2)
+      tilt
     has_scope (0.5.1)
     hike (1.2.3)
     i18n (0.6.5)
@@ -151,6 +153,7 @@ DEPENDENCIES
   activeadmin (= 0.6.0)
   coffee-rails (~> 3.2.1)
   devise (= 3.0.0)
+  haml (= 4.0.2)
   jquery-rails (= 2.1.4)
   mysql2 (= 0.3.13)
   rails (= 3.2.12)
