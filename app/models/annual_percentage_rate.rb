@@ -4,4 +4,6 @@ class AnnualPercentageRate < ActiveRecord::Base
   
   attr_accessible :name, :rate
   
+  validates :rate, :name, presence: true
+  
 end

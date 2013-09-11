@@ -8,6 +8,8 @@ class Customer < ActiveRecord::Base
   
   attr_accessible :first_name, :last_name, :email, :annual_percentage_rate_id, :credit_line_id, :balance, :start_date, :customer_transactions_attributes
   
+  validates :first_name, :last_name, :annual_percentage_rate, :credit_line, :start_date , presence: true
+  
   delegate :name, to: :credit_line, prefix: true, allow_nil: true
   delegate :credit_line, to: :credit_line, prefix: true, allow_nil: true
   delegate :name, to: :annual_percentage_rate, prefix: true, allow_nil: true
