@@ -10,8 +10,6 @@ ActiveAdmin.register CreditLine do
     default_actions                   
   end                                 
 
-  filter :email                       
-
   form do |f|                         
     f.inputs "Credit Line" do       
       f.input :name                  

@@ -10,8 +10,6 @@ ActiveAdmin.register AnnualPercentageRate do
     default_actions                   
   end                                 
 
-  filter :email                       
-
   form do |f|                         
     f.inputs "Annual Percentage Rate Infomation" do       
       f.input :name                  

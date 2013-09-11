@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 
 gem 'activeadmin', '0.6.0'
+gem 'cocoon', '1.1.2'
 gem 'devise', '3.0.0'
 gem 'haml', '4.0.2'
 gem 'jquery-rails', '2.1.4'

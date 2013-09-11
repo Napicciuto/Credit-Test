@@ -1,0 +1,7 @@
+.nested-fields
+  = f.inputs "Customer Transaction" do
+    = f.input :date
+    = f.input :debit, :as => :boolean
+    = f.input :amount
+  
+    = link_to_remove_association "remove Transaction", f
